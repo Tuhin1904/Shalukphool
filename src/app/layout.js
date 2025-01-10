@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Shaluk phool",
   description: "Shaluk phool By Biplab",
+  icons: {
+    icon: "favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
