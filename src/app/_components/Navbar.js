@@ -23,6 +23,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-10">
             {/* Desktop Navigation Links */}
+            <div className="md:hidden absolute left-0 w-full h-10 flex items-center justify-center">
+              <div className="bg-green-500 text-white text-sm font-bold py-2 px-4 rounded-full animate-marquee">
+                Get Biplab&apos;s Best with great discount!
+              </div>
+            </div>
+
             <div className="hidden md:flex space-x-6">
               {["Home", "Kids", "Jewellery", "Sale"].map((item) => (
                 <a
@@ -68,15 +74,6 @@ export default function Navbar() {
             </div>
 
             {/* Hamburger Icon for Small Screens */}
-            <button
-              className="md:hidden text-gray-700 hover:text-yellow-600"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <FontAwesomeIcon
-                icon={isMobileMenuOpen ? faTimes : faBars}
-                size="lg"
-              />
-            </button>
           </div>
         </div>
 
@@ -98,7 +95,7 @@ export default function Navbar() {
                   className="text-gray-700 hover:text-yellow-600"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <i className="fas fa-times text-xl"></i>
+                  <FontAwesomeIcon icon={faTimes} className="text-xl" />
                 </button>
               </div>
               <ul className="mt-4 space-y-4 px-4">
@@ -123,9 +120,18 @@ export default function Navbar() {
             {/* Search Icon */}
             <button
               onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
-              className="text-gray-800 hover:text-gray-600 focus:outline-none"
+              className="text-gray-800 hover:text-gray-600 focus:outline-none md:block hidden"
             >
               <FaSearch size={20} />
+            </button>
+            <button
+              className="md:hidden text-gray-700 hover:text-yellow-600"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <FontAwesomeIcon
+                icon={isMobileMenuOpen ? faTimes : faBars}
+                size="lg"
+              />
             </button>
 
             {/* Logo */}
@@ -140,9 +146,17 @@ export default function Navbar() {
             </div>
 
             {/* Profile Icon */}
-            <button className="text-gray-800 hover:text-gray-600 focus:outline-none">
-              <FaUser size={20} />
-            </button>
+            <div className="flex gap-5">
+              <button
+                onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
+                className="text-gray-800 hover:text-gray-600 focus:outline-none md:hidden block"
+              >
+                <FaSearch size={20} />
+              </button>
+              <button className="text-gray-800 hover:text-gray-600 focus:outline-none">
+                <FaUser size={20} />
+              </button>
+            </div>
           </div>
         </div>
 

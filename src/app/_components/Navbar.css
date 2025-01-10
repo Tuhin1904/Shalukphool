@@ -25,3 +25,15 @@
   border: none;
   cursor: pointer;
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(180%);
+  }
+  100% {
+    transform: translateX(-180%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 7s linear infinite;
+}
