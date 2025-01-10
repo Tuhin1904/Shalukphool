@@ -1,0 +1,27 @@
+.search-bar-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-bar-container.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-bar-container button {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
