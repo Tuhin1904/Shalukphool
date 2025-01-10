@@ -125,7 +125,7 @@ export default function Navbar() {
               <FaSearch size={20} />
             </button>
             <button
-              className="md:hidden text-gray-700 hover:text-yellow-600 flex-1 text-left"
+              className="md:hidden text-gray-700 hover:text-yellow-600 sm:flex-1 md:flex-none text-left"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <FontAwesomeIcon
@@ -135,7 +135,7 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <div className="text-lg font-bold flex-1">
+            <div className="text-lg font-bold sm:flex-1 md:flex-none">
               <Image
                 src="/shalook.jpg"
                 alt="Description of the image"
@@ -146,7 +146,7 @@ export default function Navbar() {
             </div>
 
             {/* Profile Icon */}
-            <div className="flex gap-5 flex- justify-end">
+            <div className="flex gap-5 sm:flex-1 md:flex-none justify-end">
               <button
                 onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
                 className="text-gray-800 hover:text-gray-600 focus:outline-none md:hidden block"
@@ -169,7 +169,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full p-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full p-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
             <button onClick={() => setIsSearchBarOpen(false)}>
               <FontAwesomeIcon icon={faTimes} size="lg" />
