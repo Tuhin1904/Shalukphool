@@ -125,7 +125,7 @@ export default function Navbar() {
               <FaSearch size={20} />
             </button>
             <button
-              className="md:hidden text-gray-700 hover:text-yellow-600 sm:flex-1 md:flex-none text-left"
+              className="md:hidden text-gray-700 hover:text-yellow-600 flex-1 md:flex-none text-left"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <FontAwesomeIcon
@@ -135,7 +135,7 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <div className="text-lg font-bold sm:flex-1 md:flex-none">
+            <div className="text-lg font-bold flex-1 md:flex-none">
               <Image
                 src="/shalook.jpg"
                 alt="Description of the image"
