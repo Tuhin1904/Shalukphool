@@ -85,8 +85,10 @@ export default function Navbar() {
             }`}
           >
             <div
-              className={`fixed top-0 left-0 w-64 bg-white h-full shadow-lg z-50 transform transition-transform duration-300 ${
-                isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              className={`fixed top-0 left-0 w-64 bg-white h-full shadow-lg z-50 ${
+                isMobileMenuOpen
+                  ? "animate__animated animate__slideInLeft"
+                  : "animate__animated animate__slideOutLeft"
               }`}
             >
               <div className="flex justify-between items-center p-4 border-b">

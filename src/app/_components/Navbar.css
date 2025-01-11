@@ -37,3 +37,6 @@
 .animate-marquee {
   animation: marquee 7s linear infinite;
 }
+.animate__animated {
+  --animate-duration: 0.5s; /* Adjust animation duration */
+}
