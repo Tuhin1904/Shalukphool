@@ -16,6 +16,7 @@ import Image from "next/image";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
     <>
@@ -179,6 +180,59 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      <div className="bg-gray-200 shadow-md relative hidden sm:block">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          onMouseEnter={() => setHoveredItem(null)}
+          onMouseLeave={() => setHoveredItem(null)}
+        >
+          <ul className="flex justify-between items-center py-4 relative">
+            {[
+              "Item 1",
+              "Item 2",
+              "Item 3",
+              "Item 4",
+              "Item 5",
+              "Item 1",
+              "Item 2",
+              "Item 3",
+              "Item 4",
+              "Item 5",
+            ].map((item, index) => (
+              <li
+                key={index}
+                className="relative text-gray-700 hover:text-yellow-600 cursor-pointer"
+              >
+                {/* Container for item and description */}
+                <div onMouseEnter={() => setHoveredItem(index)}>
+                  {/* Navigation Item */}
+                  {item}
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Floating Description */}
+          {hoveredItem !== null && (
+            <div className="absolute top-full left-0 w-full bg-white text-gray-700 p-4 shadow-lg z-50 h-40  animate__animated animate__fadeIn animate__delay-0.5s animate__fast">
+              <p className="text-center">{`Description for ${
+                [
+                  "Item 1",
+                  "Item 2",
+                  "Item 3",
+                  "Item 4",
+                  "Item 5",
+                  "Item 1",
+                  "Item 2",
+                  "Item 3",
+                  "Item 4",
+                  "Item 5",
+                ][hoveredItem]
+              }`}</p>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 }

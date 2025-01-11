@@ -40,3 +40,12 @@
 .animate__animated {
   --animate-duration: 0.5s; /* Adjust animation duration */
 }
+.absolute {
+  position: absolute; /* Makes the description float */
+}
+.top-full {
+  top: 100%; /* Positions the description just below the parent */
+}
+.z-50 {
+  z-index: 50; /* Ensures it's above other content */
+}
