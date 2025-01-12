@@ -1,0 +1,7 @@
+.carousel-inner img {
+  height: 100vh;
+  object-fit: cover;
+}
+#carouselExampleIndicators {
+  margin-top: -6px;
+}
