@@ -180,10 +180,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <div
-        className="bg-gray-200 shadow-md relative  hidden sm:block"
-        style={{ boxShadow: "0 4px 10px rgba(86, 206, 86, 0.5)" }}
-      >
+      <div className="bg-gray-200 shadow-md relative  hidden sm:block">
         <div
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
           onMouseEnter={() => setHoveredItem(null)}
