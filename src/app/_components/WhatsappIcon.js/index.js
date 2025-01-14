@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import "./whatsapp.css";
 
 const FloatingWhatsApp = () => {
   return (
-    <div style={styles.container}>
+    <div className="container-2">
       <Link
-        href="https://wa.me/<your-phone-number>"
+        href="https://wa.me/919875490291"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -13,23 +14,6 @@ const FloatingWhatsApp = () => {
       </Link>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    position: "fixed",
-    bottom: "20px",
-    right: "20px",
-    zIndex: 1000,
-    backgroundColor: "#fff",
-    padding: "8px",
-    borderRadius: "50%",
-  },
-  icon: {
-    fontSize: "50px",
-    color: "#25D366",
-    cursor: "pointer",
-  },
 };
 
 export default FloatingWhatsApp;

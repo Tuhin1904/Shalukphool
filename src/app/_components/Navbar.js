@@ -12,11 +12,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { categories } from "./DataRender";
+import NavbarDropDown from "./NavbarDropDown";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState({ category: "", items: [] });
+
+  // console.log("hoveredItem:", hoveredItem);
+  const router = useRouter();
 
   return (
     <>
@@ -46,6 +52,7 @@ export default function Navbar() {
             <div className="hidden md:flex space-x-6">
               <a
                 href="https://www.facebook.com/shalukphool"
+                target="_blank"
                 className="text-gray-800 hover:text-gray-500 transition-colors duration-400"
                 aria-label="Facebook"
               >
@@ -53,13 +60,15 @@ export default function Navbar() {
               </a>
               <a
                 href="#"
+                target="_blank"
                 className="text-gray-800 hover:text-gray-500 transition-colors duration-400"
                 aria-label="Twitter"
               >
                 <FaTwitter size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/biplab_dhar08/"
+                target="_blank"
                 className="text-gray-800 hover:text-gray-500 transition-colors duration-400"
                 aria-label="Instagram"
               >
@@ -67,6 +76,7 @@ export default function Navbar() {
               </a>
               <a
                 href="https://www.youtube.com/@ShalukPhool"
+                target="_blank"
                 className="text-gray-800 hover:text-gray-500 transition-colors duration-400"
                 aria-label="YouTube"
               >
@@ -156,7 +166,10 @@ export default function Navbar() {
               >
                 <FaSearch size={20} />
               </button>
-              <button className="text-gray-800 hover:text-gray-600 focus:outline-none">
+              <button
+                className="text-gray-800 hover:text-gray-600 focus:outline-none"
+                onClick={() => router.push("/profile")}
+              >
                 <FaUser size={20} />
               </button>
             </div>
@@ -183,53 +196,48 @@ export default function Navbar() {
       <div className="bg-gray-200 shadow-md relative  hidden sm:block">
         <div
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-          onMouseEnter={() => setHoveredItem(null)}
-          onMouseLeave={() => setHoveredItem(null)}
+          onMouseEnter={() =>
+            setHoveredItem({
+              item: [],
+              category: "",
+            })
+          }
+          onMouseLeave={() =>
+            setHoveredItem({
+              item: [],
+              category: "",
+            })
+          }
         >
-          <ul className="flex justify-between items-center py-4 relative">
-            {[
-              "Item 1",
-              "Item 2",
-              "Item 3",
-              "Item 4",
-              "Item 5",
-              "Item 6",
-              "Item 7",
-              "Item 8",
-              "Item 9",
-              "Item 10",
-            ].map((item, index) => (
+          <ul className="flex justify-evenly items-center py-4 relative">
+            {categories.map((item, index) => (
               <li
                 key={index}
-                className="relative text-gray-700 hover:text-yellow-600 cursor-pointer"
+                className="relative text-sm text-gray-700 hover:text-gray-500 cursor-pointer group"
               >
                 {/* Container for item and description */}
-                <div onMouseEnter={() => setHoveredItem(index)}>
+                <div
+                  style={{ fontWeight: "500" }}
+                  onMouseEnter={() =>
+                    setHoveredItem({
+                      category: item?.category,
+                      item: item?.items,
+                    })
+                  }
+                >
                   {/* Navigation Item */}
-                  {item}
+                  {item?.category}
                 </div>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gray-500 transition-all duration-500 group-hover:w-full"></span>
               </li>
             ))}
           </ul>
 
           {/* Floating Description */}
-          {hoveredItem !== null && (
-            <div className="absolute top-full left-0 w-full bg-white text-gray-700 p-4 shadow-lg z-50 h-40  animate__animated animate__fadeIn animate__delay-0.5s animate__fast">
-              <p className="text-center">{`Description for ${
-                [
-                  "Item 1",
-                  "Item 2",
-                  "Item 3",
-                  "Item 4",
-                  "Item 5",
-                  "Item 6",
-                  "Item 7",
-                  "Item 8",
-                  "Item 9",
-                  "Item 10",
-                ][hoveredItem]
-              }`}</p>
-            </div>
+          {hoveredItem.category !== "" && (
+            <>
+              <NavbarDropDown hoveredItem={hoveredItem} />
+            </>
           )}
         </div>
       </div>

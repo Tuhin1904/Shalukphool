@@ -5,3 +5,7 @@
 #carouselExampleIndicators {
   margin-top: -6px;
 }
+.carousel-control-prev {
+  height: 100px;
+  margin-top: 50%;
+}
