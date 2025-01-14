@@ -37,7 +37,7 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex space-x-6">
-              {["Home", "Kids", "Jewellery", "Sale"].map((item) => (
+              {["Home", "Kids", "Women", "Men"].map((item) => (
                 <a
                   key={item}
                   href="#"

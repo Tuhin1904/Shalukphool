@@ -99,7 +99,7 @@ const ReviewButton = () => {
               <div
                 className="absolute inset-0 z-0 bg-cover bg-center opacity-15"
                 style={{
-                  backgroundImage: 'url("Untitled_47.jpg")',
+                  backgroundImage: 'url("Men/Panjabi/1st_Image.jpg")',
                 }}
               ></div>
               <h2>{jsonData.modal.title}</h2>
